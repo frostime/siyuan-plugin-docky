@@ -144,6 +144,7 @@ export default class DockyPlugin extends Plugin {
                     props: {
                         blockId: this.data.blockId,
                         plugin: this.data.plugin,
+                        showBlockIcon: true
                     }
                 })
             }

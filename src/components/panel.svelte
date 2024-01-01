@@ -15,7 +15,7 @@
 
     onMount(() => {
         new Protyle(plugin.app, block, {
-            action: ['cb-get-all'],
+            action: ["cb-get-all"],
             blockId: blockId,
             render: {
                 background: false,
@@ -24,12 +24,25 @@
                 scroll: false,
                 breadcrumb: false,
                 breadcrumbDocName: false,
-            }
+            },
         });
-    })
+    });
 
     export let blockId: string;
     export let plugin: DockyPlugin;
+    export let showBlockIcon: boolean = false;
 </script>
 
+{#if showBlockIcon}
+    <div class="block__icons">
+        <span class="fn__flex-1 fn__space"></span>
+        <span
+            data-type="min"
+            class="block__icon b3-tooltips b3-tooltips__sw"
+            aria-label={plugin.i18n.min}
+        >
+            <svg><use xlink:href="#iconMin"></use></svg>
+        </span>
+    </div>
+{/if}
 <div class="docky-panel-body" bind:this={block}></div>
